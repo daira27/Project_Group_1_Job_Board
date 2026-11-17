@@ -9,7 +9,9 @@ export default function Header({ user, onLogout }) {
         </Link>
         <nav className="primary-nav" aria-label="Main navigation">
           <NavLink to="/" end>Find Jobs</NavLink>
+          {user?.role === 'applicant' && <NavLink to="/dashboard">My Applications</NavLink>}
           {user && <NavLink to="/profile">My Profile</NavLink>}
+          {user?.role === 'applicant' && <NavLink to="/notifications">Notifications</NavLink>}
           {user?.role === 'employer' && <NavLink to="/employer">Employer Dashboard</NavLink>}
         </nav>
         <nav className="account-nav" aria-label="Account navigation">

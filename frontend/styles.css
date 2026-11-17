@@ -228,8 +228,7 @@ input::placeholder {
   margin-bottom: 1.5rem;
 }
 
-.page-heading p,
-.placeholder-panel > p:not(.eyebrow) {
+.page-heading p {
   color: #5c6b7e;
 }
 
@@ -316,22 +315,34 @@ textarea {
   gap: 0.75rem;
 }
 
-.employer-jobs {
+.employer-jobs,
+.account-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.employer-jobs li + li {
+.employer-jobs li + li,
+.account-list li + li {
   margin-top: 1.25rem;
   padding-top: 1.25rem;
   border-top: 1px solid #dce2e9;
 }
 
-.employer-jobs h3 {
+.employer-jobs h3,
+.account-list h3 {
   margin: 0;
   font-size: 1rem;
   overflow-wrap: anywhere;
+}
+
+.account-list p {
+  margin-block: 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.application-form {
+  margin-top: 1.5rem;
 }
 
 .auth-switch {

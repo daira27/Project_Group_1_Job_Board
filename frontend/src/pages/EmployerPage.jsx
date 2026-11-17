@@ -13,7 +13,7 @@ const emptyJob = {
   requirements: '',
 };
 
-export default function EmployerPage({ user }) {
+export default function EmployerPage({ user, applications = null }) {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState('');
@@ -126,7 +126,27 @@ export default function EmployerPage({ user }) {
           )}
           <div className="job-detail-section">
             <h2>Applications</h2>
-            <p>Applicant lists and application status updates are not available yet.</p>
+            <p className="field-note">Application status updates are not connected yet.</p>
+            {applications === null ? (
+              <p role="status">Applicants cannot be loaded yet because the employer applications service is not connected.</p>
+            ) : applications.length === 0 ? (
+              <p>No applications for your jobs yet.</p>
+            ) : (
+              <ul className="account-list">
+                {applications.map((application) => (
+                  <li key={application.id}>
+                    <h3>{application.applicant_name || `Applicant #${application.applicant_id}`}</h3>
+                    <p><Link to={`/jobs/${application.job_id}`}>{application.job_title || `Job #${application.job_id}`}</Link></p>
+                    {application.cover_letter && <p className="job-full-text">{application.cover_letter}</p>}
+                    <label htmlFor={`application-status-${application.id}`}>Application status</label>
+                    <select id={`application-status-${application.id}`} value={application.status || ''} disabled>
+                      <option value="">Not provided</option>
+                      {['submitted', 'reviewing', 'accepted', 'rejected'].map((status) => <option key={status} value={status}>{status}</option>)}
+                    </select>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </section>
         <section className="panel" aria-labelledby="job-form-heading">

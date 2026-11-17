@@ -1,8 +1,10 @@
 # Node.js dependencies
 node_modules/
 
-# Vite production builds
+# Build output and caches
 dist/
+build/
+.vite/
 
 # Environment files
 .env
