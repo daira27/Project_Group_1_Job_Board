@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import Header from './Header.jsx';
-import Footer from './Footer.jsx';
 
-export default function AppLayout() {
+export default function AppLayout({ user, onLogout }) {
   const { pathname } = useLocation();
   const mainRef = useRef(null);
 
@@ -18,11 +17,13 @@ export default function AppLayout() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <Header />
+      <Header user={user} onLogout={onLogout} />
       <main className="container page-content" id="main-content" ref={mainRef} tabIndex={-1}>
         <Outlet />
       </main>
-      <Footer />
+      <footer className="site-footer">
+        <div className="container">Online Job Portal &middot; CS 312 project</div>
+      </footer>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router';
 
-export default function Header() {
+export default function Header({ user, onLogout }) {
   return (
     <header className="site-header">
       <div className="container header-content">
@@ -9,12 +9,18 @@ export default function Header() {
         </Link>
         <nav className="primary-nav" aria-label="Main navigation">
           <NavLink to="/" end>Find Jobs</NavLink>
-          <NavLink to="/profile">Job Seeker</NavLink>
-          <NavLink to="/employer">Employer</NavLink>
+          {user && <NavLink to="/profile">My Profile</NavLink>}
+          {user?.role === 'employer' && <NavLink to="/employer">Employer Dashboard</NavLink>}
         </nav>
         <nav className="account-nav" aria-label="Account navigation">
-          <NavLink to="/login">Login</NavLink>
-          <NavLink className="button" to="/signup">Sign Up</NavLink>
+          {user ? (
+            <button className="button-secondary" type="button" onClick={onLogout}>Logout</button>
+          ) : (
+            <>
+              <NavLink to="/login">Login</NavLink>
+              <NavLink className="button" to="/signup">Sign Up</NavLink>
+            </>
+          )}
         </nav>
       </div>
     </header>

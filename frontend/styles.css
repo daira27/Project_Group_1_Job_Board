@@ -121,8 +121,7 @@ button:enabled:hover {
   color: #203652;
 }
 
-button:disabled,
-fieldset:disabled button {
+button:disabled {
   background-color: #657386;
   border-color: #657386;
   cursor: not-allowed;
@@ -249,11 +248,16 @@ input::placeholder {
   text-transform: uppercase;
 }
 
-.two-column-layout {
+.two-column-layout,
+.workspace-layout,
+.jobs-layout {
   display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   align-items: start;
   gap: 1.5rem;
+}
+
+.two-column-layout {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
 }
 
 .back-link {
@@ -278,12 +282,56 @@ fieldset {
 }
 
 fieldset input,
-fieldset select {
+fieldset select,
+fieldset textarea {
   margin-bottom: 1rem;
 }
 
 .full-width {
   width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-error {
+  padding: 0.75rem;
+  border: 1px solid #d7b4b4;
+  border-radius: 4px;
+  background-color: #fff4f4;
+  color: #842d2d;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.employer-jobs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.employer-jobs li + li {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #dce2e9;
+}
+
+.employer-jobs h3 {
+  margin: 0;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
 }
 
 .auth-switch {
@@ -294,14 +342,7 @@ fieldset select {
 }
 
 .workspace-layout {
-  display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
-  align-items: start;
-  gap: 1.5rem;
-}
-
-.workspace-sidebar {
-  padding: 1.25rem;
 }
 
 .workspace-sidebar nav {
@@ -336,6 +377,172 @@ fieldset select {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+.jobs-layout {
+  grid-template-columns: 245px minmax(0, 1fr);
+}
+
+.workspace-sidebar,
+.job-filters,
+.job-card {
+  padding: 1.25rem;
+}
+
+.filters-heading,
+.job-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.filters-heading {
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #dce2e9;
+}
+
+.filters-heading h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.text-button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: #203652;
+  font-size: 0.75rem;
+  text-decoration: underline;
+}
+
+.text-button:enabled:hover {
+  background-color: transparent;
+  color: #304d70;
+}
+
+.filter-field {
+  margin-bottom: 1.25rem;
+}
+
+.filter-field .field-note {
+  margin-block: 0.4rem 0;
+  font-size: 0.75rem;
+}
+
+.results-heading {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.job-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.job-card-heading {
+  align-items: flex-start;
+}
+
+.job-card h3,
+.request-state h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.company-mark {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #eaf0f5;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.job-tag {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background-color: #eaf0f5;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.job-company,
+.job-meta,
+.job-summary {
+  color: #5c6b7e;
+  font-size: 0.875rem;
+}
+
+.job-company {
+  margin: 0;
+}
+
+.job-meta {
+  margin-block: 0.75rem;
+}
+
+.job-summary,
+.job-full-text,
+.job-card h3,
+.job-details h1 {
+  overflow-wrap: anywhere;
+}
+
+.job-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.data-notice {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #bdc8d5;
+  border-radius: 4px;
+  background-color: #eaf0f5;
+}
+
+.job-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem;
+}
+
+.job-facts dt {
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.job-facts dd {
+  margin: 0.25rem 0 0;
+  color: #5c6b7e;
+  overflow-wrap: anywhere;
+}
+
+.salary-note {
+  display: block;
+  font-size: 0.75rem;
+}
+
+.job-detail-section {
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid #dce2e9;
+}
+
+.job-full-text {
+  white-space: pre-wrap;
+}
+
+.requirements-list {
+  padding-left: 1.25rem;
 }
 
 .site-footer {
@@ -378,6 +585,20 @@ fieldset select {
   .search-controls {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .jobs-layout,
+  .job-facts,
+  .form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .job-card-heading {
+    flex-wrap: wrap;
+  }
+
+  .job-tag {
+    margin-left: 0;
   }
 
   .workspace-layout {
