@@ -1,0 +1,22 @@
+{
+  "name": "cs312-job-board-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CS 312 Job Board API",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  }
+}

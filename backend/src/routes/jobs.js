@@ -66,7 +66,6 @@ router.get('/', async (req, res, next) => {
   try {
     const result = await req.app.locals.db.query(
       `${jobSelect}
-       WHERE jobs.status = 'open'
        ORDER BY jobs.created_at DESC`,
     );
     res.json(result.rows);
