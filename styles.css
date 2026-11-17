@@ -1,0 +1,174 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #203652;
+  background-color: #f4f6f8;
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: min(100% - 2rem, 1100px);
+  margin-inline: auto;
+}
+
+.site-header,
+.site-footer {
+  background-color: #fff;
+}
+
+.site-header {
+  border-bottom: 1px solid #dce2e9;
+}
+
+.header-content,
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.header-content {
+  justify-content: space-between;
+  padding-block: 1rem;
+}
+
+.brand {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: inline-block;
+  margin-right: 0.35rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #203652;
+  font-size: 0.875rem;
+}
+
+nav a {
+  color: #203652;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+nav a[href]:hover {
+  text-decoration: underline;
+}
+
+nav a[aria-disabled="true"] {
+  cursor: default;
+}
+
+.sign-up,
+button {
+  padding: 0.65rem 1.25rem;
+  border: 1px solid #203652;
+  border-radius: 4px;
+  background-color: #203652;
+  color: #fff;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+main {
+  flex: 1;
+  padding-block: 4rem;
+}
+
+.hero {
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  border: 1px solid #dce2e9;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.description {
+  max-width: 65ch;
+  margin: 0 0 2rem;
+  color: #5c6b7e;
+}
+
+.search-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.search-field {
+  flex: 1;
+  min-width: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #bdc8d5;
+  border-radius: 4px;
+  color: #203652;
+  background-color: #fff;
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+input::placeholder {
+  color: #657386;
+}
+
+a[href]:focus-visible,
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid #537ca8;
+  outline-offset: 3px;
+}
+
+.site-footer {
+  padding-block: 1rem;
+  border-top: 1px solid #dce2e9;
+  color: #5c6b7e;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 600px) {
+  .header-content {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  main {
+    padding-block: 2rem;
+  }
+
+  .search-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
